@@ -1,0 +1,41 @@
+### .gitignore通配符规则 ###
+#斜杠"/"开头表示目录
+#星号"*"通配多个字符，即匹配多个任意字符
+#两个星号"**" 表示匹配任意中间目录
+#问号"?"通配单个字符，即匹配一个任意字符
+#叹号"!"表示不忽略匹配到的文件或目录，即提交
+#按行从上到下进行规则匹配的，如果前面的规则匹配的范围更大，则后面的规则将不会生效；
+
+### Java ###
+HELP.md
+target/
+!.mvn/wrapper/maven-wrapper.jar
+!**/src/main/**
+!**/src/test/**
+
+### STS ###
+.apt_generated
+.classpath
+.factorypath
+.project
+.settings
+.springBeans
+.sts4-cache
+
+### IntelliJ IDEA ###
+.idea
+*.iws
+*.iml
+*.ipr
+
+### NetBeans ###
+/nbproject/private/
+/nbbuild/
+/dist/
+/nbdist/
+/.nb-gradle/
+build/
+logs/
+
+### VS Code ###
+.vscode/
