@@ -1,0 +1,46 @@
+### hello
+GET http://{{content_host}}/content/course/hello
+
+> hello
+
+### 查询课程信息
+POST http://{{content_host}}/content/course/list?pageNo=1&pageSize=3
+Content-Type: application/json
+
+{
+  "auditStatus": "202004",
+  "courseName": "java",
+  "publishStatus": "203001"
+}
+
+> 2023-03-18T195637.200.json
+
+### 查询课程分类
+GET http://{{content_host}}/content/course-category/tree-nodes
+
+> 2023-03-18T195745.200.json
+
+### 新增课程基础信息(包括营销信息)
+POST http://{{content_host}}/content/course
+Content-Type: application/json
+
+{
+  "charge": "201001",
+  "price": 1,
+  "originalPrice":0,
+  "qq": "22333",
+  "wechat": "223344",
+  "phone": "13333333",
+  "validDays": 365,
+  "mt": "1-1",
+  "st": "1-1-1",
+  "name": "测试课程111",
+  "pic": "",
+  "teachmode": "200002",
+  "users": "初级人员",
+  "tags": "",
+  "grade": "204001",
+  "description": ""
+}
+
+> 2023-03-19T125446.200.json

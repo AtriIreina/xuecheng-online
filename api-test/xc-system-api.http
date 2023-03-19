@@ -1,0 +1,4 @@
+### 获取所有数据字典
+GET http://{{system_host}}/system/dictionary/all
+
+> 2023-03-18T195519.200.json

@@ -5,12 +5,17 @@
     <groupId>com.ireina</groupId>
     <artifactId>xuecheng-online-parent</artifactId>
     <version>0.0.1-SNAPSHOT</version>
+
     <modules>
-        <module>xuecheng-online-base</module>
+        <module>../xuecheng-online-base</module>
+        <module>../xuecheng-online-content</module>
+        <module>../xuecheng-online-system</module>
+        <module>../xuecheng-online-generator</module>
     </modules>
-    <packaging>pom</packaging>
+
     <name>xuecheng-online-parent</name>
     <description>xuecheng-online-parent</description>
+    <packaging>pom</packaging>
 
     <properties>
         <java.version>1.8</java.version>

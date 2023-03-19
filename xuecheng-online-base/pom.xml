@@ -6,6 +6,7 @@
         <artifactId>xuecheng-online-parent</artifactId>
         <groupId>com.ireina</groupId>
         <version>0.0.1-SNAPSHOT</version>
+        <relativePath>../xuecheng-online-parent</relativePath>
     </parent>
     <modelVersion>4.0.0</modelVersion>
 
@@ -92,6 +93,12 @@
         <dependency>
             <groupId>com.fasterxml.jackson.datatype</groupId>
             <artifactId>jackson-datatype-jsr310</artifactId>
+        </dependency>
+
+        <!-- MySQL 驱动 -->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
         </dependency>
     </dependencies>
 
