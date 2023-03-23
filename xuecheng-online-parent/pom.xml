@@ -11,6 +11,8 @@
         <module>../xuecheng-online-content</module>
         <module>../xuecheng-online-system</module>
         <module>../xuecheng-online-generator</module>
+        <module>../xuecheng-online-gateway</module>
+        <module>../xuecheng-online-media</module>
     </modules>
 
     <name>xuecheng-online-parent</name>
@@ -57,6 +59,7 @@
                 <type>pom</type>
                 <scope>import</scope>
             </dependency>
+            <!-- spring-cloud-alibaba-->
             <dependency>
                 <groupId>com.alibaba.cloud</groupId>
                 <artifactId>spring-cloud-alibaba-dependencies</artifactId>

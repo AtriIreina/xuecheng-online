@@ -1,26 +1,62 @@
-server:
-  servlet:
-    context-path: /content
-  port: 63040
+#server:
+#  servlet:
+#    context-path: /content
+#  port: 63040
+
+# 配置文件的优先级：
+# nacos配置(项目应用名配置文件 > 扩展配置文件  > 共享配置文件) > 本地配置文件(bootstrap > application > VM参数)
+# 在nacos中设置 本地配置优先
+#spring:
+# cloud:
+#  config:
+#    override-none: true
 #微服务配置
 spring:
   application:
     name: content-api
-  datasource:
-    driver-class-name: com.mysql.cj.jdbc.Driver
-    url: jdbc:mysql://192.168.101.65:3306/xcplus_content?serverTimezone=UTC&userUnicode=true&useSSL=false&
-    username: root
-    password: mysql
+  cloud:
+    nacos:
+      server-addr: 192.168.101.65:8848
+      discovery:
+        namespace: dev
+        group: xuecheng-online-project
+      config:
+        namespace: dev
+        group: xuecheng-online-project
+        file-extension: yaml
+        refresh-enabled: true
+        # 因为api接口工程依赖了 service工程的jar，这里使用 extension-configs扩展配置文件的方式 引用service工程的配置文件
+        extension-configs:
+          - data-id: content-service-${spring.profiles.active}.yaml
+            group: xuecheng-online-project
+            refresh: true
+        # 引用 共用配置
+        shared-configs:
+          - data-id: logging-${spring.profiles.active}.yaml
+            group: xuecheng-online-project-common
+            refresh: true
+          - data-id: swagger-${spring.profiles.active}.yaml
+            group: xuecheng-online-project-common
+            refresh: true
+  profiles:
+    active: dev
+
+#  datasource:
+#    driver-class-name: com.mysql.cj.jdbc.Driver
+#    url: jdbc:mysql://192.168.101.65:3306/xcplus_content?serverTimezone=UTC&userUnicode=true&useSSL=false&
+#    username: root
+#    password: mysql
 #    url: jdbc:mysql://localhost:3306/xcplus_content?serverTimezone=UTC&userUnicode=true&useSSL=false&
 #    username: root
 #    password: admin
 # 日志文件配置路径
-logging:
-  config: classpath:log4j2-dev.xml
-
-swagger:
-  title: "学成在线内容管理系统"
-  description: "内容系统管理系统对课程相关信息进行管理"
-  base-package: com.xuecheng.content.api
-  enabled: true
-  version: 1.0.0
+#logging:
+#  config: classpath:log4j2-dev.xml
+#
+## swagger 文档配置
+#swagger:
+#  title: "学成在线内容管理系统"
+#  description: "内容系统管理系统对课程相关信息进行管理"
+#  base-package: com.xuecheng.content
+#  enabled: true
+#  version: 1.0.0

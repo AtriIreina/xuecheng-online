@@ -42,18 +42,18 @@
         <!-- Spring Boot 对 LocalDateTime
           boot-starter-web自动引入
           -->
-       <!-- <dependency>
-            <groupId>com.fasterxml.jackson.module</groupId>
-            <artifactId>jackson-module-parameter-names</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jdk8</artifactId>
-        </dependency>
-        <dependency>
-            <groupId>com.fasterxml.jackson.datatype</groupId>
-            <artifactId>jackson-datatype-jsr310</artifactId>
-        </dependency>-->
+        <!-- <dependency>
+             <groupId>com.fasterxml.jackson.module</groupId>
+             <artifactId>jackson-module-parameter-names</artifactId>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.datatype</groupId>
+             <artifactId>jackson-datatype-jdk8</artifactId>
+         </dependency>
+         <dependency>
+             <groupId>com.fasterxml.jackson.datatype</groupId>
+             <artifactId>jackson-datatype-jsr310</artifactId>
+         </dependency>-->
 
         <!--<dependency>
             <groupId>org.apache.commons</groupId>
@@ -83,6 +83,17 @@
             <artifactId>swagger-spring-boot-starter</artifactId>
         </dependency>
 
+
+        <!--  nacos 注册服务 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-discovery</artifactId>
+        </dependency>
+        <!--  nacos 配置 -->
+        <dependency>
+            <groupId>com.alibaba.cloud</groupId>
+            <artifactId>spring-cloud-starter-alibaba-nacos-config</artifactId>
+        </dependency>
 
     </dependencies>
 

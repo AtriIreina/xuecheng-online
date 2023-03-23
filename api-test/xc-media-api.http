@@ -1,0 +1,18 @@
+### 上传文件
+POST {{gateway_host}}/media/upload/coursefile
+Content-Type: multipart/form-data; boundary=WebAppBoundary
+
+--WebAppBoundary
+Content-Disposition: form-data; name="filedata"; filename="222.jpg"
+
+< C:\Users\loliy\Pictures\222.jpg
+--WebAppBoundary--
+
+### 请求合并文件
+POST http://localhost:8601/api/media/upload/mergechunks
+Content-Type: application/x-www-form-urlencoded
+
+fileMd5=9ba48629a6a6c445ea063e00bf2adf76&fileName=Konachan.mp4&chunkTotal=6
+
+
+

@@ -1,0 +1,9 @@
+### 获取所有数据字典
+GET http://{{gateway_host}}/system/dictionary/all
+
+> 2023-03-20T144247.200.json
+
+### 查询课程分类
+GET http://{{gateway_host}}/content/course-category/tree-nodes
+
+> 2023-03-20T144325.200.json
