@@ -1,0 +1,55 @@
+### 授权码模式 ###############
+### 第一步申请授权码(浏览器请求)
+GET {{auth_host}}/auth/oauth/authorize?client_id=XcWebApp&response_type=code&scope=all&redirect_uri=http://www.51xuecheng.cn
+
+### 第二步申请令牌
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=authorization_code&code=kZ9we0&redirect_uri=http://www.51xuecheng.cn
+
+> 2023-03-29T190313.200.json
+
+
+
+### 密码模式申请令牌 #####################
+POST {{auth_host}}/auth/oauth/token?client_id=XcWebApp&client_secret=XcWebApp&grant_type=password&username=zhangsan&password=123
+
+### 普通令牌
+> 2023-03-29T191030.200.json
+
+### JWT令牌
+> 2023-03-29T204840.200.json
+
+
+
+###校验jwt令牌 #####################
+POST {{auth_host}}/auth/oauth/check_token?token=eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctb25saW5lIl0sInVzZXJfbmFtZSI6InpoYW5nc2FuIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTY4MDEwMTMxOSwiYXV0aG9yaXRpZXMiOlsicDEiXSwianRpIjoiZDRiZjJjNzAtMjdiMS00YWY4LThiMGYtM2EwNTA2MGQ3N2YwIiwiY2xpZW50X2lkIjoiWGNXZWJBcHAifQ.n18YwhDUj7kfLvu0dE22mbJnmvUBM_jfNE0kB2Qacp0
+
+> 2023-03-29T202908.200.json
+
+
+### 不携带JWT访问Content
+GET {{content_host}}/content/course/2
+
+{
+  "error": "unauthorized",
+  "error_description": "Full authentication is required to access this resource"
+}
+
+### 携带JWT访问Content
+GET {{content_host}}/content/course/2
+Authorization: Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctb25saW5lIl0sInVzZXJfbmFtZSI6InpoYW5nc2FuIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTY4MDEwMTMxOSwiYXV0aG9yaXRpZXMiOlsicDEiXSwianRpIjoiZDRiZjJjNzAtMjdiMS00YWY4LThiMGYtM2EwNTA2MGQ3N2YwIiwiY2xpZW50X2lkIjoiWGNXZWJBcHAifQ.n18YwhDUj7kfLvu0dE22mbJnmvUBM_jfNE0kB2Qacp0
+
+> 2023-03-29T204922.200.json
+
+
+
+### 携带JWT访问Content (网关认证) #####################
+GET {{gateway_host}}/content/course/2
+Authorization: Bearer eyJhbGciOiJIUI1NiIsInR5cCI6IkpXVCJ9.eyJhdWQiOlsieHVlY2hlbmctb25saW5lIl0sInVzZXJfbmFtZSI6InpoYW5nc2FuIiwic2NvcGUiOlsiYWxsIl0sImV4cCI6MTY4MDEwMTMxOSwiYXV0aG9yaXRpZXMiOlsicDEiXSwianRpIjoiZDRiZjJjNzAtMjdiMS00YWY4LThiMGYtM2EwNTA2MGQ3N2YwIiwiY2xpZW50X2lkIjoiWGNXZWJBcHAifQ.n18YwhDUj7kfLvu0dE22mbJnmvUBM_jfNE0kB2Qacp0
+
+{
+  "errMessage": "没有认证"
+}
+{
+  "errMessage": "认证令牌无效"
+}
+> 2023-03-29T211843.200.json

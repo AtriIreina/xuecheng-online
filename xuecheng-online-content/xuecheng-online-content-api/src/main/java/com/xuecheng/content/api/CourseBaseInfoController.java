@@ -14,6 +14,7 @@ import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -75,6 +76,8 @@ public class CourseBaseInfoController {
     @ApiOperation("根据课程id查询课程基础信息(包括基本信息和营销信息)")
     @GetMapping("/course/{courseId}")
     public CourseBaseInfoDto getCourseBaseById(@PathVariable Long courseId) {
+        //SecurityContextHolder.getContext() 底层使用 ThreadLocal
+        Object principal = SecurityContextHolder.getContext().getAuthentication().getPrincipal();
         return courseBaseInfoService.getCourseBaseInfo(courseId);
     }
 
