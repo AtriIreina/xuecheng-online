@@ -41,7 +41,7 @@ public class MediaFilesController {
     @RequestMapping(value = "/upload/coursefile", consumes = MediaType.MULTIPART_FORM_DATA_VALUE)
     public UploadFileResultDto upload(
             @RequestPart("filedata") MultipartFile filedata,
-            @RequestParam(value = "folder", required = false) String folder,
+            //@RequestParam(value = "folder", required = false) String folder,
             @RequestParam(value = "objectName", required = false) String objectName) throws IOException {
         Long companyId = 1232141425L;
         //设置文件名,文件大小,文件类型(数据字典)
@@ -55,7 +55,7 @@ public class MediaFilesController {
         filedata.transferTo(tempFile);
         String localStringPath = tempFile.getAbsolutePath();
         //把上传文件到minio并写入数据库
-        return mediaFileService.uploadFile(companyId, uploadFileParamsDto, localStringPath);
+        return mediaFileService.uploadFile(companyId, uploadFileParamsDto, localStringPath, objectName);
     }
 
 

@@ -13,6 +13,7 @@ import io.swagger.annotations.Api;
 import io.swagger.annotations.ApiOperation;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.validation.annotation.Validated;
 import org.springframework.web.bind.annotation.*;
 
@@ -28,10 +29,22 @@ public class CourseBaseInfoController {
     @Autowired
     CourseBaseInfoService courseBaseInfoService;
 
+    @Value("${server.port}")
+    private String port;
+
+    @Value("${xxl.job.admin.addresses}")
+    private String addresses;
+
+    @Value("${xxl.job.executor.appname}")
+    private String appname;
+
+    @Value("${spring.datasource.url}")
+    private String url;
+
     @ApiOperation(value = "测试接口")
     @GetMapping("/course/hello")
     public String hello() {
-        return "hello";
+        return "hello\n" + port + "\n" + url + "\n" + addresses + "\n" + appname;
     }
 
     @ApiOperation(value = "课程查询接口")

@@ -1,0 +1,7 @@
+### 预览发布
+GET {{gateway_host}}/content/coursepreview/74
+
+> 2023-03-23T194342.200.html
+
+### 课程发布
+POST {{gateway_host}}/content/coursepublish/1

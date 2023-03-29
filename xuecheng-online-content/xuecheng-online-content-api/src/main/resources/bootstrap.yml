@@ -38,6 +38,12 @@ spring:
           - data-id: swagger-${spring.profiles.active}.yaml
             group: xuecheng-online-project-common
             refresh: true
+          - data-id: freemarker-config-${spring.profiles.active}.yaml
+            group: xuecheng-online-project-common
+            refresh: true
+          - data-id: feign-${spring.profiles.active}.yaml
+            group: xuecheng-online-project-common
+            refresh: true
   profiles:
     active: dev
 

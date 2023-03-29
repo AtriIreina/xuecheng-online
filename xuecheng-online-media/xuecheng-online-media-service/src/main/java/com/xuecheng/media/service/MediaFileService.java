@@ -38,7 +38,7 @@ public interface MediaFileService {
      * @param localFilePath       文件磁盘路径
      * @return 文件信息
      */
-    UploadFileResultDto uploadFile(Long companyId, UploadFileParamsDto uploadFileParamsDto, String localFilePath);
+    UploadFileResultDto uploadFile(Long companyId, UploadFileParamsDto uploadFileParamsDto, String localFilePath, String objectName);
 
     boolean addMediaFiles2MinIO(String localFilePath, String mimeType, String bucket, String objectName);
 
@@ -60,23 +60,25 @@ public interface MediaFileService {
     RestResponse<Boolean> checkChunk(String fileMd5, int chunkIndex);
 
     /**
-     * @description 上传分块
-     * @param fileMd5  文件md5
-     * @param chunk  分块序号
-     * @param bytes  文件字节
+     * @param fileMd5 文件md5
+     * @param chunk   分块序号
+     * @param bytes   文件字节
      * @return com.xuecheng.base.model.RestResponse
+     * @description 上传分块
      */
-    RestResponse  uploadChunk(String fileMd5, int chunk, byte[] bytes);
+    RestResponse uploadChunk(String fileMd5, int chunk, byte[] bytes);
 
     /**
-     * @description 合并分块
-     * @param companyId  机构id
-     * @param fileMd5  文件md5
-     * @param chunkTotal 分块总和
+     * @param companyId           机构id
+     * @param fileMd5             文件md5
+     * @param chunkTotal          分块总和
      * @param uploadFileParamsDto 文件信息
      * @return com.xuecheng.base.model.RestResponse
+     * @description 合并分块
      */
     RestResponse mergechunks(Long companyId, String fileMd5, int chunkTotal, UploadFileParamsDto uploadFileParamsDto);
 
     File downloadFileFromMinIO(String bucket, String objectName);
+
+    MediaFiles getFileById(String mediaId);
 }

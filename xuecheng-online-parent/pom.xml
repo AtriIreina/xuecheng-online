@@ -13,6 +13,9 @@
         <module>../xuecheng-online-generator</module>
         <module>../xuecheng-online-gateway</module>
         <module>../xuecheng-online-media</module>
+        <module>../xuecheng-online-message-sdk</module>
+        <module>../xuecheng-online-search</module>
+        <module>../xuecheng-online-auth</module>
     </modules>
 
     <name>xuecheng-online-parent</name>
